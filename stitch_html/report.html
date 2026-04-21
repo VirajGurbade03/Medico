@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clinical Analysis - Disease Report</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#6cf8bb",
+                        "surface-container-low": "#f2f3fd",
+                        "surface-container": "#ecedf7",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "primary": "#005bbf",
+                        "on-primary-fixed-variant": "#004493",
+                        "surface-tint": "#005bc0",
+                        "outline": "#727785",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-container": "#0e0200",
+                        "on-primary-container": "#ffffff",
+                        "outline-variant": "#c1c6d6",
+                        "secondary-fixed-dim": "#4edea3",
+                        "secondary-fixed": "#6ffbbe",
+                        "primary-container": "#1a73e8",
+                        "inverse-on-surface": "#eff0fa",
+                        "surface-bright": "#f9f9ff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "inverse-primary": "#adc7ff",
+                        "surface-dim": "#d8d9e3",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-fixed": "#001a41",
+                        "secondary": "#006c49",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2d3038",
+                        "on-tertiary-fixed": "#341100",
+                        "tertiary": "#9e4300",
+                        "surface-variant": "#e0e2ec",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#00714d",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#d8e2ff",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9ff",
+                        "on-surface": "#191c23",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-background": "#191c23",
+                        "tertiary-fixed": "#ffdbcb",
+                        "tertiary-container": "#c55500",
+                        "on-surface-variant": "#414754",
+                        "primary-fixed-dim": "#adc7ff",
+                        "surface-container-high": "#e6e8f2",
+                        "surface-container-highest": "#e0e2ec",
+                        "on-tertiary-fixed-variant": "#783100",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed">
+<!-- Desktop Navigation Drawer -->
+<aside class="hidden md:flex fixed left-0 top-0 h-screen w-72 flex-col space-y-2 py-6 bg-slate-50 border-r-0 rounded-r-3xl shadow-2xl z-50">
+<div class="px-8 mb-8">
+<h1 class="text-blue-700 font-black text-2xl tracking-tighter">Clinical Luminary</h1>
+</div>
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden shadow-md">
+<img alt="Dr. Clinical Luminary" class="w-full h-full object-cover" data-alt="professional portrait of a male doctor in clinical white coat with stethoscope around neck" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3aEc3vvgcoDcDTWkrgYmHESgpMT5qaLXQgmDAzk4KMD3Owb7a1UDT2DZfBcgNt_Pt5n4oiluhxGGeC8dDmXWApItVjKHkhVE1OYrkjfYqiqkyULV6AwoNvnINDE1cEMqMzaF_T3lHHP7orbpORd4XH39zJgXiVYKYx5L4VyBRyn-y3t6v9RzxOHpKpig5_C8RDFLh6PjcGj2GYLDj3SOPypiOlYjBCrZ_bNs4Zdg3xR_wpIqXq9zFUNVpBii2-lRSgMmqe8jkGIl_"/>
+</div>
+<div>
+<p class="text-on-surface font-bold text-sm">Dr. Clinical Luminary</p>
+<p class="text-on-surface-variant text-xs font-medium">Lead Oncologist</p>
+<p class="text-primary text-[10px] font-bold uppercase tracking-wider">Hospital Central</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="text-slate-600 mx-2 px-4 py-3 hover:bg-blue-50/50 transition-all duration-300 ease-in-out font-['Inter'] text-sm font-medium flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+                Patient Dashboard
+            </div>
+<div class="bg-blue-50 text-blue-700 rounded-xl mx-2 px-4 py-3 font-semibold font-['Inter'] text-sm flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined">biotech</span>
+                Diagnostic Lab
+            </div>
+<div class="text-slate-600 mx-2 px-4 py-3 hover:bg-blue-50/50 transition-all duration-300 ease-in-out font-['Inter'] text-sm font-medium flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined">description</span>
+                Medical Records
+            </div>
+<div class="text-slate-600 mx-2 px-4 py-3 hover:bg-blue-50/50 transition-all duration-300 ease-in-out font-['Inter'] text-sm font-medium flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined">psychology</span>
+                AI Insights
+            </div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-72 min-h-screen flex flex-col pb-24 md:pb-8">
+<!-- TopAppBar -->
+<header class="bg-white/80 backdrop-blur-xl sticky top-0 z-40 flex items-center justify-between px-6 py-4 w-full shadow-[0px_10px_30px_rgba(25,28,35,0.04)]">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-slate-500 active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-['Inter'] font-semibold tracking-tight text-slate-900 text-xl">Clinical Analysis</h2>
+</div>
+<div class="flex items-center gap-2">
+<div class="hidden md:flex gap-6 mr-6">
+<span class="text-slate-500 hover:bg-slate-100 px-3 py-1 rounded-lg transition-colors cursor-pointer text-sm font-medium">Overview</span>
+<span class="text-blue-700 font-bold px-3 py-1 rounded-lg bg-blue-50 cursor-pointer text-sm font-medium">Analysis</span>
+<span class="text-slate-500 hover:bg-slate-100 px-3 py-1 rounded-lg transition-colors cursor-pointer text-sm font-medium">History</span>
+</div>
+<div class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center border-2 border-white shadow-sm overflow-hidden">
+<img alt="Doctor Profile" data-alt="Doctor Profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnIL6XzsLMSz60geZzQNv4OmgGv_ruDSRzszmm7Dn-kDVKGkg0Uz_CiOuMHUf0XSDKWI1XQ3KuSdk12PJPldg4rkz88Kv6UhYdhYRUgCD5tJuRMTAERsGoolISd9C9xToPp3hv6brVdmotnOfj79NRmX6eKzFNYPjCgGKharKExAQcaOO4p0YRUUWitYntO9FZQmg7crRDEdoM6Xv4dY3kHN1Cha4sgyAHpav-LqEb538_C9Pujzwp6-SAsbmafr3NlJ1wbA-7PvhR"/>
+</div>
+</div>
+</header>
+<!-- Page Body -->
+<div class="p-6 md:p-10 max-w-7xl mx-auto w-full">
+<!-- Patient Header Metadata Section -->
+<section class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded uppercase tracking-widest">Active Analysis</span>
+<span class="text-on-surface-variant text-sm font-medium">Session ID: #8829</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-black text-on-surface tracking-tighter mb-2">John Doe</h1>
+<p class="text-on-surface-variant font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                        Report Generated: Oct 25, 2023
+                    </p>
+</div>
+<div class="flex flex-col items-center md:items-end">
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0px_10px_30px_rgba(25,28,35,0.06)] border-l-4 border-secondary flex items-center gap-4">
+<div class="text-right">
+<span class="block text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-1">AI Confidence</span>
+<span class="text-3xl font-black text-on-surface">94%</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed text-2xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Suggestions List -->
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0px_10px_30px_rgba(25,28,35,0.06)]">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-xl font-bold text-on-surface tracking-tight">AI-Suggested Conditions</h3>
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+</div>
+<div class="space-y-6">
+<!-- Condition 1 -->
+<div class="group cursor-pointer">
+<div class="flex justify-between items-center mb-3">
+<div>
+<h4 class="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Acute Bronchitis</h4>
+<p class="text-sm text-on-surface-variant">Primary symptoms match detected cough and fatigue.</p>
+</div>
+<span class="text-sm font-bold text-primary">78% Match</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 78%;"></div>
+</div>
+</div>
+<!-- Condition 2 -->
+<div class="group cursor-pointer">
+<div class="flex justify-between items-center mb-3">
+<div>
+<h4 class="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Influenza A</h4>
+<p class="text-sm text-on-surface-variant">High correlation with fever and sudden onset fatigue.</p>
+</div>
+<span class="text-sm font-bold text-primary">62% Match</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 62%;"></div>
+</div>
+</div>
+<!-- Condition 3 -->
+<div class="group cursor-pointer">
+<div class="flex justify-between items-center mb-3">
+<div>
+<h4 class="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">Allergic Rhinitis</h4>
+<p class="text-sm text-on-surface-variant">Secondary possibility given seasonal factors.</p>
+</div>
+<span class="text-sm font-bold text-primary">24% Match</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000 opacity-60" style="width: 24%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-10 p-4 bg-surface-container-low rounded-2xl flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-0.5">lightbulb</span>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                Our clinical AI cross-referenced these results with <span class="font-bold text-on-surface">2.4M clinical trials</span> and historical patient cohorts with similar respiratory markers.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Symptoms & Notes -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Extracted Symptoms -->
+<div class="bg-white rounded-3xl p-8 shadow-[0px_10px_30px_rgba(25,28,35,0.06)] border border-outline-variant/10">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-6">Extracted Symptoms</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-bold border border-blue-100">fever</span>
+<span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-bold border border-blue-100">headache</span>
+<span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-bold border border-blue-100">persistent cough</span>
+<span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-bold border border-blue-100">fatigue</span>
+<span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-bold border border-blue-100">chest tightness</span>
+</div>
+</div>
+<!-- Clinical Notes -->
+<div class="bg-white rounded-3xl p-8 shadow-[0px_10px_30px_rgba(25,28,35,0.06)] border border-outline-variant/10 flex-1">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-4">Doctor's Clinical Notes</h3>
+<div class="relative group">
+<textarea class="w-full bg-surface-container-high rounded-2xl p-4 text-sm text-on-surface border-none focus:ring-2 focus:ring-primary/20 min-h-[200px] placeholder:italic placeholder:text-on-surface-variant/50" placeholder="Enter additional observations or differential diagnosis rationale here..."></textarea>
+<div class="absolute bottom-4 right-4 flex items-center gap-2 text-[10px] text-on-surface-variant font-bold uppercase">
+<span class="material-symbols-outlined text-xs">edit_note</span>
+                                Auto-Saving
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Area -->
+<section class="mt-12 flex flex-col md:flex-row items-center justify-between gap-6 p-8 bg-blue-600 rounded-[2.5rem] shadow-xl text-white relative overflow-hidden">
+<!-- Background decorative element -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<h3 class="text-2xl font-black tracking-tight">Ready for clinical review?</h3>
+<p class="text-white/80 text-sm font-medium">Finalize the report to share with the primary care team.</p>
+</div>
+<div class="relative z-10 flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-8 py-4 bg-white text-blue-700 rounded-full font-black text-sm hover:bg-blue-50 active:scale-95 transition-all shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">picture_as_pdf</span>
+                        Generate &amp; Download PDF Report
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pt-3 pb-8 bg-white/90 backdrop-blur-2xl rounded-t-[2.5rem] shadow-xl z-50">
+<div class="flex flex-col items-center justify-center text-slate-400 hover:text-blue-500 transition-all cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[11px] font-bold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 hover:text-blue-500 transition-all cursor-pointer">
+<span class="material-symbols-outlined">group</span>
+<span class="font-['Inter'] text-[11px] font-bold uppercase tracking-widest mt-1">Patients</span>
+</div>
+<div class="flex flex-col items-center justify-center text-blue-600 bg-blue-50 rounded-2xl px-6 py-2 active:scale-90 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-['Inter'] text-[11px] font-bold uppercase tracking-widest mt-1">Reports</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 hover:text-blue-500 transition-all cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Inter'] text-[11px] font-bold uppercase tracking-widest mt-1">Settings</span>
+</div>
+</nav>
+</body></html>

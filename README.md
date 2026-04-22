@@ -17,6 +17,35 @@ A production-ready full-stack application that:
 
 ---
 
+## 💻 Technology Stack
+
+### 1. 🎨 Frontend (User Interface)
+* **Framework:** **Next.js 14** (App Router) & **React 18**
+* **Styling:** **Tailwind CSS** with a custom "Clinical Luminary" design system (glassmorphism, modern medical color palettes)
+* **Icons:** **Lucide-React** and Google Material Symbols
+* **Data Visualization:** **Recharts** (dynamic "Disease Probability" bar charts)
+* **Animations:** Custom CSS transitions and animations
+
+### 2. ⚙️ Backend (API Server)
+* **Framework:** **FastAPI** for high-performance ML API endpoints
+* **Server:** **Uvicorn** (ASGI web server)
+* **Architecture:** Modular structure (Routes, Services, ML Models)
+
+### 3. 🧠 Artificial Intelligence & Machine Learning
+* **Speech-to-Text & Translation:** **OpenAI Whisper** (`whisper-base`). Transcribes audio and natively translates non-English languages to English in a single step via `task="translate"`.
+* **Symptom Extraction (NLP):** **spaCy** (`en_core_web_sm`). Custom rule-based matching extracts medical symptoms, assesses severity (mild/moderate/severe), and illness duration.
+* **Disease Prediction Engine:** **Sentence-BERT** (`all-MiniLM-L6-v2` via `sentence-transformers`). Computes semantic cosine similarity of extracted symptoms against a custom database of 120+ medical conditions.
+
+### 4. 🗄️ Database & Authentication
+* **Database:** **Firebase Cloud Firestore** (NoSQL). Stores `sessions` (audio metadata, symptoms, predictions) and `reports` (final generated PDFs).
+* **Authentication:** **Firebase Authentication** (Email/Password) ensures doctors only access their own patients' records.
+* **SDKs:** Firebase Web SDK (Frontend) + Firebase Admin Python SDK (Backend).
+
+### 5. 📄 Document Generation
+* **PDF Engine:** **ReportLab** (Python). Dynamically constructs multi-page, formatted medical PDFs containing patient metadata, doctor notes, AI suggestions, and full conversation transcripts.
+
+---
+
 ## 🏗️ Project Structure
 
 ```

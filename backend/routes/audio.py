@@ -66,9 +66,8 @@ async def upload_audio(
     with open(audio_path, "wb") as f:
         f.write(content)
 
-    # Upload to Firebase Storage
-    audio_url = firebase.upload_audio(str(audio_path), user_id, session_id)
-
+    # Upload to Firebase Storage (Disabled by user request, using Firestore only)
+    audio_url = ""
     # Create session record
     session_data = {
         "session_id": session_id,

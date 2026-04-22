@@ -148,6 +148,12 @@ export async function listReports(
   return request('/api/reports', { token });
 }
 
+export async function listSessions(
+  token: string
+): Promise<{ sessions: Array<Record<string, unknown>> }> {
+  return request('/api/sessions', { token });
+}
+
 // Health check (no auth)
 export async function healthCheck(): Promise<{ status: string }> {
   return request('/health');

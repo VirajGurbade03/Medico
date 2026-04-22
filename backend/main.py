@@ -8,12 +8,17 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
+load_dotenv()
+
+# Immediately inject the WinGet local links folder into the system PATH
+# so Whisper can find the newly installed ffmpeg without restarting the terminal.
+winget_path = os.path.expanduser(r"~\AppData\Local\Microsoft\WinGet\Links")
+if winget_path not in os.environ.get("PATH", ""):
+    os.environ["PATH"] = winget_path + os.pathsep + os.environ.get("PATH", "")
 
 from routes.audio import router as audio_router
 from routes.analysis import router as analysis_router
 from routes.report import router as report_router
-
-load_dotenv()
 
 logging.basicConfig(
     level=logging.INFO,

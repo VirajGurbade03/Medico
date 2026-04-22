@@ -180,3 +180,12 @@ async def sepsis_risk(
         "session_id": body.session_id,
         "sepsis_evaluation": prediction
     }
+
+@router.get("/sessions")
+async def list_sessions(
+    user: dict = Depends(verify_token),
+):
+    """List all sessions for the authenticated user."""
+    user_id = user.get("uid", "anonymous")
+    sessions = firebase.get_user_sessions(user_id)
+    return {"success": True, "sessions": sessions, "count": len(sessions)}

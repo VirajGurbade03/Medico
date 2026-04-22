@@ -76,8 +76,8 @@ async def generate_report(
         logger.error(f"PDF generation error: {e}")
         raise HTTPException(status_code=500, detail=f"PDF generation failed: {str(e)}")
 
-    # Upload PDF to Firebase Storage
-    pdf_url = firebase.upload_pdf(pdf_path, user_id, report_id)
+    # Upload PDF to Firebase Storage (Disabled by user request, using Firestore only)
+    pdf_url = ""
 
     # Save report metadata to Firestore
     firebase.save_report({

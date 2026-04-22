@@ -8,12 +8,12 @@
 
 A production-ready full-stack application that:
 1. **Accepts** doctor-patient conversation audio (MP3, WAV, M4A, etc.)
-2. **Transcribes** speech using OpenAI Whisper (local model)
-3. **Translates** Hindi/multilingual audio to English (NLLB)
-4. **Extracts** symptoms, severity, and duration using NLP
-5. **Predicts** probable diseases using Sentence-BERT + 120+ disease database
-6. **Generates** downloadable professional PDF reports
-7. **Stores** data securely in Firebase (Auth + Firestore + Storage)
+2. **Transcribes and Translates** speech to English seamlessly using OpenAI Whisper
+3. **Extracts** symptoms, severity, and duration using NLP
+4. **Predicts** probable diseases using Sentence-BERT + 120+ disease database
+5. **Generates** downloadable professional PDF reports
+6. **Stores** data securely in Firebase (Auth + Firestore)
+7. **Tracks** patient sessions with full historical records and timeline views
 
 ---
 
@@ -28,7 +28,7 @@ Medico/
 │   ├── data/
 │   │   └── diseases.json       ← 120+ disease database
 │   ├── models/
-│   │   ├── transcriber.py      ← Whisper + NLLB
+│   │   ├── transcriber.py      ← Whisper (STT & Translation)
 │   │   ├── symptom_extractor.py
 │   │   └── disease_predictor.py ← Sentence-BERT
 │   ├── routes/
@@ -172,13 +172,15 @@ NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
 |--------|----------|------|-------------|
 | GET | `/health` | ❌ | Backend health check |
 | POST | `/api/upload-audio` | ✅ | Upload audio file |
-| POST | `/api/transcribe` | ✅ | Transcribe uploaded audio |
+| POST | `/api/transcribe` | ✅ | Transcribe & translate audio |
 | POST | `/api/extract-symptoms` | ✅ | Extract symptoms from text |
 | POST | `/api/predict-disease` | ✅ | Predict probable diseases |
 | POST | `/api/generate-report` | ✅ | Generate PDF report |
 | GET | `/api/report/{id}` | ✅ | Get report by ID |
 | GET | `/api/reports` | ✅ | List user's reports |
 | GET | `/api/report/{id}/download` | ✅ | Download PDF directly |
+| GET | `/api/sessions` | ✅ | List user's audio sessions |
+| GET | `/api/session/{id}` | ✅ | Get session data by ID |
 
 Interactive API docs: http://localhost:8000/docs
 
@@ -190,8 +192,7 @@ Interactive API docs: http://localhost:8000/docs
 Audio File
     ↓
 Whisper STT (openai/whisper-base)
-    ↓ [if Hindi/non-English]
-NLLB Translation (facebook/nllb-200-distilled-600M)
+    ↳ Transcribes & translates to English simultaneously via `task="translate"`
     ↓
 English Transcription
     ↓
@@ -246,7 +247,7 @@ MP3, WAV, M4A, OGG, FLAC, WebM, MP4 · Max 50 MB
 ## 🌍 Supported Languages
 
 - **English** (primary)
-- **Hindi** (with auto-translation via NLLB)
+- **Hindi** (with auto-translation via Whisper)
 - Other languages Whisper supports (transcribed in original language)
 
 ---
@@ -255,9 +256,7 @@ MP3, WAV, M4A, OGG, FLAC, WebM, MP4 · Max 50 MB
 
 | Package | Purpose |
 |---------|---------|
-| `openai-whisper` | Speech-to-text |
-| `transformers` | NLLB translation model |
-| `sentence-transformers` | Semantic disease matching |
+| `openai-whisper` | Speech-to-text & Translation |
 | `spacy` | NLP symptom extraction |
 | `firebase-admin` | Firebase backend SDK |
 | `reportlab` | PDF generation |

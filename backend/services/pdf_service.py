@@ -131,7 +131,7 @@ class PDFService:
         gen_at = report_data.get("generated_at", now)
 
         # ─── Header ────────────────────────────────────────────────────────
-        story.append(Paragraph("🏥 AI Clinical Assistant", title_style))
+        story.append(Paragraph("🏥 Clinica AI", title_style))
         story.append(Paragraph("Medical Conversation Intelligence System", subtitle_style))
         story.append(HRFlowable(width="100%", thickness=2, color=BLUE))
         story.append(Spacer(1, 0.3 * cm))
@@ -310,7 +310,7 @@ class PDFService:
         story.append(HRFlowable(width="100%", thickness=1, color=BLUE))
         story.append(Spacer(1, 0.15 * cm))
         story.append(Paragraph(
-            "AI Clinical Assistant | Powered by Whisper, NLLB, and Sentence-BERT | "
+            "Clinica AI | Powered by Whisper, NLLB, and Sentence-BERT | "
             "This is NOT a substitute for professional medical advice.",
             ParagraphStyle("Footer", parent=styles["Normal"], fontSize=7, textColor=colors.gray, alignment=TA_CENTER)
         ))

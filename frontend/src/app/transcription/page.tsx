@@ -115,7 +115,7 @@ function TranscriptionContent() {
           <div style={{ background: 'var(--blue-50)', padding: '0.375rem', borderRadius: 'var(--radius-sm)' }}>
              <Stethoscope size={20} color="var(--blue-600)" />
           </div>
-          <span style={{ fontWeight: 700, fontSize: '1.0625rem', color: 'var(--blue-900)' }}>AI Clinical Assistant</span>
+          <span style={{ fontWeight: 700, fontSize: '1.0625rem', color: 'var(--blue-900)' }}>Clinica AI</span>
         </Link>
         {step === 'done' && (
           <button

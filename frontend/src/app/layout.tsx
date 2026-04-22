@@ -3,12 +3,12 @@ import { AuthProvider } from '@/lib/auth-context';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: 'AI Clinical Assistant | Medical Conversation Analyzer',
+  title: 'Clinica AI | Medical Conversation Analyzer',
   description:
     'AI-powered Doctor-Patient Conversation Intelligence System. Transcribes audio, extracts symptoms, and generates structured medical reports. ⚠️ Not a medical diagnosis tool.',
   keywords: 'AI medical assistant, doctor patient conversation, symptom extraction, medical transcription',
   openGraph: {
-    title: 'AI Clinical Assistant',
+    title: 'Clinica AI',
     description: 'AI-powered Medical Conversation Intelligence System',
     type: 'website',
   },

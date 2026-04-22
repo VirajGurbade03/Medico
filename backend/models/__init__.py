@@ -1,1 +1,1 @@
-# AI Clinical Assistant Backend
+# Clinica AI Backend

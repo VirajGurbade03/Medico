@@ -1,4 +1,4 @@
-# 🏥 AI Clinical Assistant — Medical Conversation Intelligence System
+# 🏥 Clinica AI — Medical Conversation Intelligence System
 
 > ⚠️ **IMPORTANT DISCLAIMER**: This is an AI-assisted tool for informational purposes only. It is **NOT a substitute for professional medical advice, diagnosis, or treatment**. All predictions are AI-generated suggestions based on semantic similarity — not clinical diagnoses. Always consult a qualified healthcare professional.
 

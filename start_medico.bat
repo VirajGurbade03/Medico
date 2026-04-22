@@ -1,19 +1,19 @@
 @echo off
-title AI Clinical Assistant Startup Script
+title Clinica AI Startup Script
 color 0B
 echo ===================================================
-echo     Starting AI Clinical Assistant Infrastructure    
+echo     Starting Clinica AI Infrastructure    
 echo ===================================================
 echo.
 
 echo [1/2] Launching Python FastAPI Backend...
 :: Open a new command prompt window, activate the venv, and run the backend
-start "Medico Backend (FastAPI)" cmd /c "cd backend && venv\Scripts\activate && python main.py"
+start "Clinica AI Backend (FastAPI)" cmd /c "cd backend && venv\Scripts\activate && python main.py"
 
 echo.
 echo [2/2] Launching Next.js Frontend Development Server...
 :: Open a new command prompt window and run the frontend
-start "Medico Frontend (Next.js)" cmd /c "cd frontend && npm run dev"
+start "Clinica AI Frontend (Next.js)" cmd /c "cd frontend && npm run dev"
 
 echo.
 echo ===================================================

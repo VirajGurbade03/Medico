@@ -33,7 +33,7 @@ export default function HomePage() {
           </div>
 
           <h1 style={{ marginBottom: '1rem', color: 'var(--blue-900)' }}>
-            AI Clinical Assistant
+            Clinica AI
           </h1>
           <p style={{ color: 'var(--gray-600)', fontSize: '1.125rem', marginBottom: '2rem', lineHeight: '1.6' }}>
             Intelligent transcription and symptom analysis for modern healthcare professionals.

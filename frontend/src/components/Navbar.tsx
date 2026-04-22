@@ -59,7 +59,7 @@ export default function Navbar({ activePage }: NavbarProps) {
           <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary-container text-white shadow-sm ring-1 ring-primary/10">
             <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>clinical_notes</span>
           </div>
-          <h1 className="text-lg font-bold text-blue-900 dark:text-blue-100 font-['Inter'] tracking-tight">AI Clinical Assistant</h1>
+          <h1 className="text-lg font-bold text-blue-900 dark:text-blue-100 font-['Inter'] tracking-tight">Clinica AI</h1>
         </Link>
         
         {/* Desktop Navigation */}

@@ -162,7 +162,7 @@ export default function AnalysisPage() {
           <div style={{ background: 'var(--blue-50)', padding: '0.375rem', borderRadius: 'var(--radius-sm)' }}>
              <Stethoscope size={20} color="var(--blue-600)" />
           </div>
-          <span style={{ fontWeight: 700, fontSize: '1.0625rem', color: 'var(--blue-900)' }}>AI Clinical Assistant</span>
+          <span style={{ fontWeight: 700, fontSize: '1.0625rem', color: 'var(--blue-900)' }}>Clinica AI</span>
         </Link>
         <div style={{ display: 'flex', gap: '0.75rem' }}>
           <Link href="/dashboard" className="btn btn-secondary btn-sm" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>

@@ -52,7 +52,7 @@ export default function SignupPage() {
             <div style={{ background: 'var(--blue-50)', padding: '0.5rem', borderRadius: 'var(--radius-sm)' }}>
               <Stethoscope size={24} color="var(--blue-600)" />
             </div>
-            <span style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--blue-900)' }}>AI Clinical Assistant</span>
+            <span style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--blue-900)' }}>Clinica AI</span>
           </div>
 
           <div style={{ maxWidth: '400px', width: '100%', margin: 'auto' }}>

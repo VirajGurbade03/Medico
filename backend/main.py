@@ -1,5 +1,5 @@
 """
-AI Clinical Assistant – FastAPI Backend
+Clinica AI – FastAPI Backend
 Main application entry point
 """
 import os
@@ -33,7 +33,7 @@ _models = {}
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Load ML models at startup, release at shutdown."""
-    logger.info("🚀 Starting AI Clinical Assistant backend...")
+    logger.info("🚀 Starting Clinica AI backend...")
 
     # Import model services (lazy load to avoid circular imports)
     from models.transcriber import TranscriberService
@@ -68,7 +68,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="AI Clinical Assistant API",
+    title="Clinica AI API",
     description=(
         "Backend API for the AI-powered Medical Conversation Intelligence System. "
         "⚠️ All disease predictions are AI-assisted suggestions, NOT medical diagnoses."
@@ -99,7 +99,7 @@ app.include_router(report_router, prefix="/api", tags=["Report"])
 @app.get("/")
 async def root():
     return {
-        "message": "AI Clinical Assistant API",
+        "message": "Clinica AI API",
         "version": "1.0.0",
         "disclaimer": (
             "This is an AI-assisted tool and NOT a medical diagnosis system. "

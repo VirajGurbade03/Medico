@@ -7,7 +7,7 @@ import {
   ResponsiveContainer, Cell,
 } from 'recharts';
 import { useAuth } from '@/lib/auth-context';
-import { generateReport } from '@/lib/api';
+import { generateReport, getSession } from '@/lib/api';
 import { PageTransition, StaggerContainer, FadeInItem } from '@/components/PageTransition';
 import { 
   Stethoscope, FileText, AlertTriangle, Loader2, 
@@ -73,31 +73,8 @@ export default function AnalysisPage() {
       const token = await getIdToken();
       if (!token) return;
       // Load from backend
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/report/${sessionId}`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      ).catch(() => null);
-
-      // If no stored report, use what we got from transcription page (or show placeholder)
-      // In a full app, we'd store session data in Firestore and retrieve here
-      // For now, show a rich placeholder
-      setSession({
-        session_id: sessionId,
-        patient_name: 'Patient',
-        diseases: [
-          { rank: 1, disease: 'Common cold with runny nose, sneezing, and mild fever', confidence_pct: 72.4 },
-          { rank: 2, disease: 'Influenza (flu) with high fever, body aches, and fatigue', confidence_pct: 65.1 },
-          { rank: 3, disease: 'Allergic rhinitis with sneezing, itchy eyes, and nasal congestion', confidence_pct: 58.3 },
-          { rank: 4, disease: 'Sinusitis with facial pressure, nasal congestion, and headache', confidence_pct: 51.2 },
-          { rank: 5, disease: 'COVID-19 with fever, cough, loss of taste, and fatigue', confidence_pct: 44.7 },
-        ],
-        symptoms: ['fever', 'cough', 'fatigue', 'headache', 'sore throat', 'runny nose'],
-        severity: 'moderate',
-        duration: '3 days',
-        translated_text: 'Patient reports fever for 3 days, cough, fatigue, and headache. Sore throat noted. No significant travel history.',
-        language_name: 'Hindi',
-        was_translated: true,
-      });
+      const res = await getSession(sessionId, token);
+      setSession(res.session as unknown as SessionData);
     } catch {
       setError('Failed to load session data.');
     } finally {
@@ -159,10 +136,7 @@ export default function AnalysisPage() {
         boxShadow: 'var(--shadow-sm)',
       }}>
         <Link href="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', textDecoration: 'none' }}>
-          <div style={{ background: 'var(--blue-50)', padding: '0.375rem', borderRadius: 'var(--radius-sm)' }}>
-             <Stethoscope size={20} color="var(--blue-600)" />
-          </div>
-          <span style={{ fontWeight: 700, fontSize: '1.0625rem', color: 'var(--blue-900)' }}>Clinica AI</span>
+          <img src="/logos/main_logo.png" alt="Clinica AI" style={{ height: '32px', width: 'auto' }} />
         </Link>
         <div style={{ display: 'flex', gap: '0.75rem' }}>
           <Link href="/dashboard" className="btn btn-secondary btn-sm" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>

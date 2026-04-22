@@ -154,6 +154,13 @@ export async function listSessions(
   return request('/api/sessions', { token });
 }
 
+export async function getSession(
+  sessionId: string,
+  token: string
+): Promise<{ session: Record<string, unknown> }> {
+  return request(`/api/session/${sessionId}`, { token });
+}
+
 // Health check (no auth)
 export async function healthCheck(): Promise<{ status: string }> {
   return request('/health');

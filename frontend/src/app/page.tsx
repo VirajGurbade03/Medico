@@ -22,19 +22,15 @@ export default function HomePage() {
         <div style={{ textAlign: 'center', maxWidth: '600px', padding: '2rem' }}>
           
           {/* Professional Hero Graphic */}
-          <div style={{ marginBottom: '2rem', position: 'relative', width: '280px', height: '280px', margin: '0 auto 2rem' }}>
+          <div style={{ marginBottom: '2rem', position: 'relative', width: '280px', height: '140px', margin: '0 auto 2rem' }}>
             <Image 
-              src="/hero-abstract.png" 
-              alt="Medical AI Abstract" 
+              src="/logos/main_logo.png" 
+              alt="Clinica AI" 
               fill
-              style={{ objectFit: 'contain', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.1))' }}
+              style={{ objectFit: 'contain' }}
               priority
             />
           </div>
-
-          <h1 style={{ marginBottom: '1rem', color: 'var(--blue-900)' }}>
-            Clinica AI
-          </h1>
           <p style={{ color: 'var(--gray-600)', fontSize: '1.125rem', marginBottom: '2rem', lineHeight: '1.6' }}>
             Intelligent transcription and symptom analysis for modern healthcare professionals.
           </p>

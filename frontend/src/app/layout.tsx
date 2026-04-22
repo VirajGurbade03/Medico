@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     description: 'AI-powered Medical Conversation Intelligence System',
     type: 'website',
   },
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

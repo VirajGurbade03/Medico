@@ -56,10 +56,7 @@ export default function Navbar({ activePage }: NavbarProps) {
       <div className="flex justify-between items-center px-6 py-4">
         {/* Logo Section */}
         <Link href="/dashboard" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary-container text-white shadow-sm ring-1 ring-primary/10">
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>clinical_notes</span>
-          </div>
-          <h1 className="text-lg font-bold text-blue-900 dark:text-blue-100 font-['Inter'] tracking-tight">Clinica AI</h1>
+          <img src="/logos/landing_logo.png" alt="Clinica AI" className="h-8 w-auto" />
         </Link>
         
         {/* Desktop Navigation */}

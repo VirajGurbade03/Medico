@@ -189,3 +189,19 @@ async def list_sessions(
     user_id = user.get("uid", "anonymous")
     sessions = firebase.get_user_sessions(user_id)
     return {"success": True, "sessions": sessions, "count": len(sessions)}
+
+@router.get("/session/{session_id}")
+async def get_session(
+    session_id: str,
+    user: dict = Depends(verify_token),
+):
+    """Retrieve session metadata by ID."""
+    session = firebase.get_session(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail=f"Session '{session_id}' not found")
+
+    # Verify ownership
+    if session.get("user_id") != user.get("uid"):
+        raise HTTPException(status_code=403, detail="Access denied")
+
+    return {"success": True, "session": session}

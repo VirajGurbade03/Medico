@@ -44,15 +44,12 @@ export default function SignupPage() {
   return (
     <PageTransition>
       <div style={{ minHeight: '100vh', display: 'flex', background: 'var(--bg)' }}>
-        
+
         {/* Left Side: Form */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '2rem' }}>
           {/* Logo / Header */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: 'auto' }}>
-            <div style={{ background: 'var(--blue-50)', padding: '0.5rem', borderRadius: 'var(--radius-sm)' }}>
-              <Stethoscope size={24} color="var(--blue-600)" />
-            </div>
-            <span style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--blue-900)' }}>Clinica AI</span>
+            <img src="/logos/main_logo.png" alt="Clinica AI" style={{ height: '70px', width: 'auto' }} />
           </div>
 
           <div style={{ maxWidth: '400px', width: '100%', margin: 'auto' }}>
@@ -165,16 +162,17 @@ export default function SignupPage() {
 
         {/* Right Side: Abstract Illustration */}
         <div style={{ flex: 1, backgroundColor: 'var(--blue-50)', display: 'none', position: 'relative' }} className="auth-illustration">
-           <Image 
-              src="/auth-illustration.png" 
-              alt="Clinical Dashboard" 
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-            />
+          <Image
+            src="/auth-illustration.png"
+            alt="Clinical Dashboard"
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
+          />
         </div>
-        
-        <style dangerouslySetInnerHTML={{__html: `
+
+        <style dangerouslySetInnerHTML={{
+          __html: `
           @media (min-width: 1024px) {
             .auth-illustration { display: block !important; }
           }

@@ -93,7 +93,7 @@ class FirebaseService:
         db.collection("sessions").document(session_id).set({
             **session_data,
             "created_at": datetime.now(timezone.utc).isoformat(),
-        })
+        }, merge=True)
         return session_id
 
     def get_session(self, session_id: str) -> Optional[dict]:
@@ -117,7 +117,7 @@ class FirebaseService:
         db.collection("reports").document(report_id).set({
             **report_data,
             "created_at": datetime.now(timezone.utc).isoformat(),
-        })
+        }, merge=True)
         return report_id
 
     def get_report(self, report_id: str) -> Optional[dict]:
@@ -140,11 +140,12 @@ class FirebaseService:
         docs = (
             db.collection("sessions")
             .where("user_id", "==", user_id)
-            .order_by("created_at", direction=firestore.Query.DESCENDING)
-            .limit(limit)
             .stream()
         )
-        return [doc.to_dict() for doc in docs]
+        # Sort in Python to avoid requiring a Firebase Composite Index
+        sessions = [doc.to_dict() for doc in docs]
+        sessions.sort(key=lambda x: x.get("created_at", ""), reverse=True)
+        return sessions[:limit]
 
     def get_user_reports(self, user_id: str, limit: int = 10) -> list[dict]:
         """Get recent reports for a user."""
@@ -156,8 +157,9 @@ class FirebaseService:
         docs = (
             db.collection("reports")
             .where("user_id", "==", user_id)
-            .order_by("created_at", direction=firestore.Query.DESCENDING)
-            .limit(limit)
             .stream()
         )
-        return [doc.to_dict() for doc in docs]
+        # Sort in Python to avoid requiring a Firebase Composite Index
+        reports = [doc.to_dict() for doc in docs]
+        reports.sort(key=lambda x: x.get("created_at", ""), reverse=True)
+        return reports[:limit]

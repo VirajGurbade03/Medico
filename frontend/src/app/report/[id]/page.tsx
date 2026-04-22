@@ -63,10 +63,9 @@ export default function ReportPage() {
       {/* TopAppBar */}
       <header className="bg-white/80 backdrop-blur-xl sticky top-0 z-40 flex items-center justify-between px-6 py-4 w-full shadow-[0px_10px_30px_rgba(25,28,35,0.04)]">
         <div className="flex items-center gap-4 max-w-7xl mx-auto w-full justify-between">
-          <div className="flex items-center gap-3">
-             <span className="material-symbols-outlined text-blue-700 text-2xl">clinical_notes</span>
-             <h2 className="font-headline font-semibold tracking-tight text-slate-900 text-xl hidden md:block">Clinical Analysis</h2>
-          </div>
+          <Link href="/dashboard" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
+             <img src="/logos/main_logo.png" alt="Clinica AI" className="h-8 w-auto" />
+          </Link>
           <div className="flex flex-1 md:flex-none justify-end items-center gap-2">
             <div className="hidden md:flex gap-6 mr-6">
               <Link href="/dashboard" className="text-slate-500 hover:bg-slate-100 px-3 py-1 rounded-lg transition-colors cursor-pointer text-sm font-medium">Dashboard</Link>
